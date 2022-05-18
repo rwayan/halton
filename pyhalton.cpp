@@ -52,5 +52,12 @@ std::vector<std::vector<double>> genHalton_all(size_t dim, size_t seqLength)
 
 
 PYBIND11_MODULE(halton, m) {
+	class_<halton>(m, "halton")
+		.def(init<bool>())
+		.def("init", &halton::init)
+		.def("genHalton", &halton::genHalton)
+		.def("get_rnd", &halton::get_rnd)
+		.def("genHalton_all", &genHalton_all, return_value_policy::take_ownership)
+		;	
 	m.def("genHalton_all", &genHalton_all, return_value_policy::take_ownership);
 }

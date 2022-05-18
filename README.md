@@ -1,3 +1,35 @@
+## Python Binding For Halton
+由于性能原因，提供了两种接口
+
+* 使用genHalton_all(维度,长度)
+
+可以一次性返回所有的结果，耗时比较长
+
+Example:
+```
+import halton
+N = 10000
+DIM = 2
+hg = halton.genHalton_all(DIM,N)
+hn = np.array(hg, copy=False)
+```
+
+* 使用原版C++的接口
+```
+import halton
+N = 10
+h = halton.halton(True)
+h.init(DIM,True,True)
+for i in range(N):
+    h.genHalton()
+    for j in range(DIM):
+        res = h.get_rnd(j+1)
+        print(res)
+```
+
+-----------------------------------------------------------------------------------
+
+
 ## Halton
 
 Fast Halton sequence generator. 
