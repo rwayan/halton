@@ -3,8 +3,8 @@
 #include "halton.h"
 #include "timer.h"
 
-#define N 10000000
-#define DIM 100
+#define N 100000000
+#define DIM 2
 
 std::shared_ptr<MersenneTwister> pmt (MersenneTwister::Instance());
 
