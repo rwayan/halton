@@ -57,7 +57,6 @@ PYBIND11_MODULE(halton, m) {
 		.def("init", &halton::init)
 		.def("genHalton", &halton::genHalton)
 		.def("get_rnd", &halton::get_rnd)
-		.def("genHalton_all", &genHalton_all, return_value_policy::take_ownership)
 		;	
 	m.def("genHalton_all", &genHalton_all, return_value_policy::take_ownership);
 }
